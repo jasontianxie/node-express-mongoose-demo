@@ -5,7 +5,7 @@
  */
 
 const express = require('express');
-const session = require('express-session');
+const session = require('express-session');//创建一个会话的中间件。
 const compression = require('compression');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -16,7 +16,7 @@ const csrf = require('csurf');//该模块用于防范csrf攻击（关于csrf攻�
 const cors = require('cors');//配置CORS，跨站点资源共享，具体使用看npm官网
 const upload = require('multer')();//用于处理multipart/form-data这种格式的文件上传请求。
 
-const mongoStore = require('connect-mongo')(session);
+const mongoStore = require('connect-mongo')(session);//创建一个store供express-session使用：http://www.cnblogs.com/chenchenluo/p/4197181.html
 const flash = require('connect-flash');
 const winston = require('winston');
 const helpers = require('view-helpers');
