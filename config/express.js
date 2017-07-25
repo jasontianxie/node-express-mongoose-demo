@@ -16,7 +16,7 @@ const csrf = require('csurf');//该模块用于防范csrf攻击（关于csrf攻�
 const cors = require('cors');//配置CORS，跨站点资源共享，具体使用看npm官网
 const upload = require('multer')();//用于处理multipart/form-data这种格式的文件上传请求。
 
-const mongoStore = require('connect-mongo')(session);//创建一个store供express-session使用：http://www.cnblogs.com/chenchenluo/p/4197181.html
+const mongoStore = require('connect-mongo')(session);//创建一个store供express-session使用（如果不加mongodb则session是存储在内存中的，加上过后，就是存储在mongodb中了）：http://www.cnblogs.com/chenchenluo/p/4197181.html。如果要修改session，就用req.session进行修改。express的req对象是没有session这个属性的（看手册http://www.expressjs.com.cn/4x/api.html#req）所以这里的session属性是中间件对req进行了改写。
 const flash = require('connect-flash');
 const winston = require('winston');
 const helpers = require('view-helpers');
