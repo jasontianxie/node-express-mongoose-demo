@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+//express官网推荐了一些有用的中间件：http://expressjs.com/en/resources/middleware.html
 const express = require('express');
 const session = require('express-session');//创建一个会话的中间件。
 const compression = require('compression');
