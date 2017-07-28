@@ -8,6 +8,7 @@ const express = require('express');
 const session = require('express-session');//创建一个会话的中间件。
 const compression = require('compression');
 const morgan = require('morgan');//https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
+//https://segmentfault.com/a/1190000007769095
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
