@@ -8,7 +8,7 @@ const express = require('express');
 const session = require('express-session');//创建一个会话的中间件。
 const compression = require('compression');
 const morgan = require('morgan');//https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
-//https://segmentfault.com/a/1190000007769095
+//https://segmentfault.com/a/1190000007769095.Morgan，http请求日志中间件。
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
@@ -19,7 +19,7 @@ const upload = require('multer')();//用于处理multipart/form-data这种格式
 
 const mongoStore = require('connect-mongo')(session);//创建一个store供express-session使用（如果不加mongodb则session是存储在内存中的，加上过后，就是存储在mongodb中了）：http://www.cnblogs.com/chenchenluo/p/4197181.html。如果要修改session，就用req.session进行修改。express的req对象是没有session这个属性的（看手册http://www.expressjs.com.cn/4x/api.html#req）所以这里的session属性是中间件对req进行了改写。
 const flash = require('connect-flash');
-const winston = require('winston');
+const winston = require('winston');//多传输日志记录模块，为什么有了Morgan，还要使用Winston？
 const helpers = require('view-helpers');
 const config = require('./');
 const pkg = require('../package.json');
