@@ -16,7 +16,7 @@ const User = mongoose.model('User');
 exports.load = async(function* (req, res, next, _id) {
   const criteria = { _id };
   try {
-    req.profile = yield User.load({ criteria });
+    req.profile = yield User.load({ criteria });//load是什么方法，在官网中没有找到用法。
     if (!req.profile) return next(new Error('User not found'));
   } catch (err) {
     return next(err);
