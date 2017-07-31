@@ -18,7 +18,7 @@ const cors = require('cors');//配置CORS，跨站点资源共享，具体使用
 const upload = require('multer')();//用于处理multipart/form-data这种格式的文件上传请求。
 
 const mongoStore = require('connect-mongo')(session);//创建一个store供express-session使用（如果不加mongodb则session是存储在内存中的，加上过后，就是存储在mongodb中了）：http://www.cnblogs.com/chenchenluo/p/4197181.html。如果要修改session，就用req.session进行修改。express的req对象是没有session这个属性的（看手册http://www.expressjs.com.cn/4x/api.html#req）所以这里的session属性是中间件对req进行了改写。
-const flash = require('connect-flash');
+const flash = require('connect-flash');//Flash是一个在session中存储信息的中间件。通常和重定向结合使用。当使用了这个中间件后，req就会有一个Flash方法，即req.flash（），可以用这个方法，在一个页面中存储消息，然后在另一个页面中取出该消息。https://www.npmjs.com/package/connect-flash
 const winston = require('winston');//多传输日志记录模块，为什么有了Morgan，还要使用Winston？
 const helpers = require('view-helpers');
 const config = require('./');
