@@ -16,6 +16,7 @@ const fs = require('fs');
 const join = require('path').join;
 const express = require('express');
 const mongoose = require('mongoose');//使用前先安装mongodb，mongodb的安装可以参考官网，或者是菜鸟教程。mongodb不是用npm安装的。
+//例子：http://www.cnblogs.com/chuaWeb/p/5174951.html.官网：http://mongoosejs.com/docs/index.html
 const passport = require('passport');
 const config = require('./config');
 
