@@ -5,7 +5,7 @@
  */
 //express官网推荐了一些有用的中间件：http://expressjs.com/en/resources/middleware.html
 const express = require('express');
-const session = require('express-session');//创建一个会话的中间件。
+const session = require('express-session');//创建一个会话的中间件。cookie是保存在客户端的，而session是保存在服务器端的。http://www.cnblogs.com/chenchenluo/p/4197181.html
 const compression = require('compression');
 const morgan = require('morgan');//https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
 //https://segmentfault.com/a/1190000007769095.Morgan，http请求日志中间件。
