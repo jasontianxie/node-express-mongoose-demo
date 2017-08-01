@@ -54,5 +54,5 @@ function listen () {
 
 function connect () {
   var options = { server: { socketOptions: { keepAlive: 1 } } };
-  return mongoose.connect(config.db, options).connection;//用mongoose连接数据库，如果没有要连接的数据库，就新建一个。关于connect的第一个参数，看菜鸟教程上的解释。
+  return mongoose.connect(config.db, options).connection;//用mongoose连接数据库，如果没有要连接的数据库，就新建一个。关于connect的第一个参数url，看菜鸟教程上的解释。http://www.runoob.com/mongodb/mongodb-connections.html
 }
