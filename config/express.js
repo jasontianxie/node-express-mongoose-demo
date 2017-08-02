@@ -11,7 +11,7 @@ const compression = require('compression');
 const morgan = require('morgan');//https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
 //https://segmentfault.com/a/1190000007769095.Morgan，http请求日志中间件。
 const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session');//https://stackoverflow.com/questions/23566555/whats-difference-with-express-session-and-cookie-session
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');//该模块的作用是复写http的方法。为什么要用这个模块？有的时候客户端不提供某些方法，比如DELETE,PUT等（看这个例子：http://blog.csdn.net/boyzhoulin/article/details/40146197）这个模块函数支持两个参数，参数1是将要用来替换原方法的新方法，可是是字符串或者函数，如果是函数，则该函数返回新的方法。参数2是即将被替换掉的旧方法
 const csrf = require('csurf');//该模块用于防范csrf攻击（关于csrf攻击，参考：http://blog.csdn.net/stpeace/article/details/53512283）。它会在客户端代码中添加一个隐藏的元素来保存token，然后服务端可以对比该token来确定请求时用户发起的还是恶意网站发起的。可以先按照npm官网上的简单例子使用一下，或者按照：http://www.cnblogs.com/y-yxh/p/5761941.html给的方法实验一下，还有更多的配置，在以后的实践中再一一实验。
