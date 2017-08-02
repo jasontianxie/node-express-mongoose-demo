@@ -6,6 +6,7 @@
 //express官网推荐了一些有用的中间件：http://expressjs.com/en/resources/middleware.html
 const express = require('express');
 const session = require('express-session');//创建一个会话的中间件。cookie是保存在客户端的，而session是保存在服务器端的。http://www.cnblogs.com/chenchenluo/p/4197181.html
+//为什么sessionID比cookie保存用户名和密码安全一点？sessionID不也是用cookie保存的吗？1、sessionid是动态生成的，保存sessionid的cookie有有效期，当有效期过期后攻击者获得的sessionid也就不能用了，也就是说攻击者获得sessionid后能干坏事也是有时间限制的。而如果攻击者获取了用户名和密码则就可以不受限制。2、攻击者即使获得了sessionid权限也是有限制的。比如说，他不能更改用户现有的用户名和密码，因为一般要更改用户信息，会要求再次输入用户名和密码才能修改，而此时攻击者只有sessionid。但是，如果攻击者有了用户名和密码，那么他就有了所有权限。，
 const compression = require('compression');
 const morgan = require('morgan');//https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
 //https://segmentfault.com/a/1190000007769095.Morgan，http请求日志中间件。
