@@ -10,7 +10,7 @@ const session = require('express-session');//创建一个会话的中间件。co
 const compression = require('compression');
 const morgan = require('morgan');//https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
 //https://segmentfault.com/a/1190000007769095.Morgan，http请求日志中间件。
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');//服务端的压缩工具，压缩过后会减小传输的文件的大小，提升用户体验。支持两种格式的压缩gzip和deflate。但是如果服务端发送过来的是压缩文件，而客户端浏览器不支持怎么办？其实支持gzip的浏览器会通过HTTP头告诉服务器，如Accept-Encoding: gzip。服务器看到这个才返回gzip的内容。这是HTTP协议的规定。具体可以看RFC-2616。https://www.zhihu.com/question/25871199/answer/31797223
 const cookieSession = require('cookie-session');//https://stackoverflow.com/questions/23566555/whats-difference-with-express-session-and-cookie-session
 //express-session和cookie-session的区别在这篇文章中说了（https://stackoverflow.com/questions/23566555/whats-difference-with-express-session-and-cookie-session）session是 保存在多个地方的，内存、数据库、文件、或者是cookie中，express-session就可以有多种选择，而cookie-session则只能把session保存在cookie中。把session保存在cookie中有安全问题，就是用户可以更改session的内容来伪造成其他用户。怎么办呢，这时就要使用签名（hash）：服务端先设置一个密码（secret），客户登录后，服务端用这个密码和用户的信息生成一个hash值，然后将hash值和session一起发送到客户端，如果客户端伪造了session，那么他发送过来的session就和hash不能匹配，服务端就会察觉（https://zhuanlan.zhihu.com/p/25495290，https://cnodejs.org/topic/53971784a087f45620ea988a），，，，，，，，，，，，，，，，，，，，，，，
 //这篇文章中说（https://stackoverflow.com/questions/23566555/whats-difference-with-express-session-and-cookie-session）为什么cookie-session得到的总是空对象，而express-session可以得到一些内容？其实cookie-session得到的总是空对象是因为还没有给session设置值啊，要使用req.session设置session的内容，然后再访问req.session就不会是空的了，express-session可以得到一些内容其实只是一些配置内容，并没有得到session内容，原因也一样，之前并没有给session设置过值，当然console的时候就得不到。
